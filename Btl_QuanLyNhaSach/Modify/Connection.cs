@@ -10,9 +10,9 @@ namespace Btl_QuanLyNhaSach
     class Connection
     {
         // Đường liên kết tới sql
-        private static string stringConnection = @"Data Source=DESKTOP-ESFTV9I\SQLEXPRESS;Initial Catalog=SQLHT1;Integrated Security=True";
-       
+       // private static string stringConnection = @"Data Source=DESKTOP-ESFTV9I\SQLEXPRESS;Initial Catalog=SQLHT1;Integrated Security=True";
 
+        private static string stringConnection = @"Data Source=125.212.225.233,14333;Initial Catalog=exam;Persist Security Info=True;User ID=sa;Password=Thearrow199*";
         public static SqlConnection GetSqlConnection()
         {
             return new SqlConnection(stringConnection);
