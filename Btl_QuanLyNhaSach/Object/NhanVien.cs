@@ -13,6 +13,7 @@ namespace Btl_QuanLyNhaSach.Object
         private string sDiaChi;
         private string sSDT;
         private string sTenLoai;
+       
 
         public NhanVien(string sMaNV, string sTenNV, string sDiaChi, string sSDT, string sTenLoai)
         {

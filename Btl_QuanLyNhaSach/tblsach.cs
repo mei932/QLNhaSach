@@ -77,9 +77,11 @@ namespace Btl_QuanLyNhaSach
         {
             try
             {
-                dataGridView_Sach.DataSource = modifySach.Table("SELECT sMaSach AS 'Mã Sách', sTenSach AS 'Tên Sách', fGiaSach AS 'Giá Sách', iSoLuong AS 'Số Lượng Trong Kho', sMaNXB AS 'Mã NXB', sTheLoai AS 'Thể Loại' FROM tblSach");
-            }   
-            catch(Exception ex)
+                dataGridView_Sach.DataSource = modifySach.Table("SELECT sMaSach AS 'Mã Sách', sTenSach AS 'Tên Sách', fGiaSach AS 'Giá Sách', iSoLuong AS 'Số Lượng Trong Kho', sMaNXB AS 'Mã NXB', sTheLoai AS 'Thể Loại'  FROM tblSach");
+              
+            }
+
+            catch (Exception ex)
             {
                 MessageBox.Show("Lỗi: " +ex.Message);
             }
@@ -109,6 +111,7 @@ namespace Btl_QuanLyNhaSach
             iSoLuong.Text = "";
             sTenSach.Text = "";
             sTheLoai.Text = "";
+            txtThemtruong.Text = "";
         }
 
         // Sử lí sự kiện nhập không được để trống
@@ -120,7 +123,7 @@ namespace Btl_QuanLyNhaSach
                 return false;
             } 
             if (sTenNXB.Text == "" || sMaSach.Text == "" || fGiaSach.Text == "" || iSoLuong.Text == ""
-                || sTenSach.Text == "" || sTheLoai.Text == "")
+                || sTenSach.Text == "" || sTheLoai.Text == "" || txtThemtruong.Text== "")
             {
                 MessageBox.Show("Mời bạn nhập đầy đủ thông tin!");
                 return false;
@@ -139,7 +142,9 @@ namespace Btl_QuanLyNhaSach
             int isoLuong = int.Parse(iSoLuong.Text);
             string smaNXB = comboBox1.Text;
             string stheLoai = sTheLoai.Text;
-            sach = new Sach(smaSach, stenSach, fgiaSach, isoLuong, smaNXB, stheLoai);
+            string sThemTruong = txtThemtruong.Text; // Lấy dữ liệu từ textbox sThemTruong (giả sử bạn có textbox có tên là sThemTruong)
+
+            sach = new Sach(smaSach, stenSach, fgiaSach, isoLuong, smaNXB, stheLoai, sThemTruong);
         }
 
         // Sử lí sự kiện cập nhật dữ liệu
@@ -302,8 +307,11 @@ namespace Btl_QuanLyNhaSach
             }
             else
             {
-                string query = "SELECT sMaSach AS 'Mã Sách', sTenSach AS 'Tên Sách', fGiaSach AS 'Giá Sách', iSoLuong AS 'Số Lượng Trong Kho', sMaNXB AS 'Mã NXB', sTheLoai AS 'Thể Loại' FROM tblSach WHERE sTenSach LIKE N'%" + name + "%'";
+                string query = "SELECT sMaSach AS 'Mã Sách', sTenSach AS 'Tên Sách', fGiaSach AS 'Giá Sách', iSoLuong AS 'Số Lượng Trong Kho', sMaNXB AS 'Mã NXB', sTheLoai AS 'Thể Loại' FROM tblSach WHERE sMaNXB LIKE N'%" + name + "%'";
                 dataGridView_Sach.DataSource = modifySach.Table(query);
+
+       
+               
             }
         }
 

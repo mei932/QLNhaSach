@@ -14,12 +14,13 @@ namespace Btl_QuanLyNhaSach
         private int iSoLuong;
         private string sMaNXB;
         private string sTheLoai;
+        private string sThemTruong;
 
         public Sach()
         {
         }
 
-        public Sach(string sMaSach, string sTenSach, float fGiaSach, int iSoLuong, string sMaNXB, string sTheLoai)
+        public Sach(string sMaSach, string sTenSach, float fGiaSach, int iSoLuong, string sMaNXB, string sTheLoai, string sThemTruong)
         {
             this.sMaSach = sMaSach;
             this.sTenSach = sTenSach;
@@ -27,6 +28,7 @@ namespace Btl_QuanLyNhaSach
             this.iSoLuong = iSoLuong;
             this.sMaNXB = sMaNXB;
             this.sTheLoai = sTheLoai;
+            this.sThemTruong = sThemTruong;
         }
 
         public string SMaSach { get => sMaSach; set => sMaSach = value; }
@@ -35,5 +37,13 @@ namespace Btl_QuanLyNhaSach
         public int ISoLuong { get => iSoLuong; set => iSoLuong = value; }
         public string SMaNXB { get => sMaNXB; set => sMaNXB = value; }
         public string STheLoai { get => sTheLoai; set => sTheLoai = value; }
+        public string SThemTruong { get => sThemTruong; set => sThemTruong = value;  }
+
+       /* public string SThemTruong
+        {
+            get => sThemTruong; // Trả về giá trị của biến
+            set => sThemTruong = value; // Gán giá trị mới cho biến
+        }
+*/
     }
 }
